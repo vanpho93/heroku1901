@@ -1,6 +1,6 @@
 const fs = require('fs');
 const express = require('express');
-const reload = require('reload');
+// const reload = require('reload');
 const parser = require('body-parser').urlencoded({ extended: false });
 
 const { upload } = require('./uploadConfig');
@@ -64,5 +64,5 @@ app.get('/update/:id', (req, res) => {
     .catch(error => res.send(error));
 });
 
-app.listen(3000, () => console.log('Server started!'));
-reload(app);
+app.listen(process.env.PORT || 3000, () => console.log('Server started!'));
+// reload(app);
