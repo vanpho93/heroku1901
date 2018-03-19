@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 // mongoose.connect('mongodb://localhost/mean1901');
-mongoose.connect('mongodb://pho:123456@ds147711.mlab.com:47711/mean1901');
+// mongoose.connect('mongodb://pho:123456@ds147711.mlab.com:47711/mean1901');
+
+const URI = process.env.PORT ? 'mongodb://pho:123456@ds147711.mlab.com:47711/mean1901' : 'mongodb://localhost/mean1901';
+mongoose.connect(URI);
 
 const singerSchema = new mongoose.Schema({
     name: { type: String, trim: true, required: true },

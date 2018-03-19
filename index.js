@@ -66,3 +66,8 @@ app.get('/update/:id', (req, res) => {
 
 app.listen(process.env.PORT || 3000, () => console.log('Server started!'));
 // reload(app);
+
+app.locals.isLocal = !process.env.PORT;
+if (!process.env.PORT) {
+    require('reload')(app);
+}
